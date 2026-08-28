@@ -105,8 +105,8 @@ export default function WorkSection() {
               {skills.frontend}
             </li>
             <li>
-              <span className="font-semibold text-white">Backend</span> and
-              DevOps : {skills.backend}
+              <span className="font-semibold text-white">Backend and
+              DevOps</span> : {skills.backend}
             </li>
             <li>
               <span className="font-semibold text-white">AI</span> : {skills.ai}
