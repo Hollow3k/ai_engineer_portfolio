@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rose-muted: #b85a6a;
+  --font-sans: "Inter", sans-serif;
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-fade-in: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-white font-sans m-0 p-0;
+}
+
+/* Thin scrollbar for music list */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #b85a6a;
+  border-radius: 3px;
+}
+
