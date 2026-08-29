@@ -1,6 +1,7 @@
 interface Project {
   name: string;
   description: string;
+  tech: string[];
   liveUrl: string;
   githubUrl: string;
 }
@@ -10,6 +11,7 @@ const projects: Project[] = [
     name: "Higenbot",
     description:
       "A multi-agent platform that turns a text prompt into a playable browser game through collaborating AI agents with real-time streaming and iterative editing.",
+    tech: ["LangGraph", "FastAPI", "WebSockets", "Supabase"],
     liveUrl: "https://higenbot.vercel.app",
     githubUrl: "https://github.com/Hollow3k/higenbot",
   },
@@ -17,6 +19,7 @@ const projects: Project[] = [
     name: "Shay",
     description:
       "A platform for developers to design and generate database schemas, either manually or using the built in AI and export SQL queries.",
+    tech: ["React Flow", "GenAI", "Supabase"],
     liveUrl: "https://shay-five.vercel.app",
     githubUrl: "https://github.com/Hollow3k/shay",
   },
@@ -24,6 +27,7 @@ const projects: Project[] = [
     name: "Pitch Perfect",
     description:
       "A platform for founders to practice their pitches against conversational voice based AI investors with different personas.",
+    tech: ["React", "Node.js", "WebRTC", "GenAI"],
     liveUrl: "https://pitchperfect.angad.social",
     githubUrl: "https://github.com/Hollow3k/pitch-perfect",
   },
@@ -31,6 +35,7 @@ const projects: Project[] = [
     name: "Gemini Clone",
     description:
       "A working clone of Gemini.com with GEMINI API integration focused at frontend development with ReactJS.",
+    tech: ["React.js", "Gemini API"],
     liveUrl: "https://geminiclone-beryl.vercel.app/",
     githubUrl: "https://github.com/Hollow3k/Gemini-clone",
   },
@@ -88,6 +93,16 @@ export default function WorkSection() {
               <p className="text-xs text-gray-400 leading-relaxed">
                 {project.description}
               </p>
+              <div className="flex flex-wrap gap-1.5 justify-center md:justify-start">
+                {project.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] text-rose-muted/90 bg-rose-muted/10 px-2 py-0.5 rounded-full"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
