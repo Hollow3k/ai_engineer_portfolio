@@ -13,7 +13,7 @@ export default function ResumeSection() {
             </span>
           </div>
           <a
-            href="/Angad_Resume_Aug.pdf"
+            href="/Resume_Angad_Bajaj.pdf"
             download
             className="group flex items-center gap-2 text-xs text-gray-400 hover:text-rose-muted transition-colors"
           >
@@ -25,7 +25,7 @@ export default function ResumeSection() {
         {/* PDF Embed */}
         <div className="border border-gray-800 rounded-lg overflow-hidden bg-gray-950/30">
           <iframe
-            src="/Angad_Resume_Aug.pdf"
+            src="/Resume_Angad_Bajaj.pdf"
             title="Resume"
             className="w-full h-[70vh] md:h-[75vh]"
             style={{ colorScheme: "dark" }}
