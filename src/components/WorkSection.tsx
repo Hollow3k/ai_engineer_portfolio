@@ -45,7 +45,7 @@ const skills = {
   languages: "TypeScript, JavaScript, Java, C++, Python, SQL",
   frontend: "React.js, Tailwind CSS, Three.js, HTML, CSS",
   backend: "Node.js, Express.js, FastAPI, MongoDB, PostgreSQL, Supabase, Git",
-  ai: "Langchain, LangGraph, Chroma DB, GenAI",
+  ai: "Langchain, LangGraph, Chroma DB, GenAI, Activepieces",
 };
 
 export default function WorkSection() {
