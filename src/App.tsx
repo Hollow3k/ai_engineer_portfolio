@@ -52,7 +52,7 @@ export default function App() {
       case "about":
         return <AboutSection />;
       case "work":
-        return <WorkSection />;
+        return <WorkSection onNavigate={handleNavigate} />;
       case "links":
         return <LinksSection />;
       case "resume":

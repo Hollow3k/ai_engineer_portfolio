@@ -48,20 +48,42 @@ const skills = {
   ai: "Langchain, LangGraph, Chroma DB, GenAI, Activepieces",
 };
 
-export default function WorkSection() {
+interface WorkSectionProps {
+  onNavigate: (section: string) => void;
+}
+
+export default function WorkSection({ onNavigate }: WorkSectionProps) {
   return (
     <section id="work" className="px-4 md:px-16 py-3 md:py-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 max-w-6xl mx-auto text-center md:text-left">
-        {/* Left Column - Current Work */}
+        {/* Left Column - Experiences */}
         <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
           <div className="flex items-center justify-center md:justify-start gap-2">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-            </span>
-            <span>Currently working as :</span>
+            <span>Experiences :</span>
           </div>
-          <p><b>AI Agent Builder at Gravity.fast</b></p>
+          <p><b>Agentic AI Intern @ Gravity.fast</b></p>
+          <div className="space-y-2 text-left text-xs text-gray-400">
+            <p>I design AI agent systems that take on complex, multi-step work beyond the demo.</p>
+            <p>I focus on the hard part: reliable decisions, structured outputs, and graceful recovery.</p>
+          </div>
+
+          <div className="space-y-3 pt-2">
+            <div className="space-y-2 text-left">
+              <p><b>Tech Team Member @ Hash Define</b></p>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                I’ve taught DSA to 30+ students and helped run technical
+                sessions, coding workshops, and a hackathon for the College
+                Technical Society.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => onNavigate("links")}
+            className="text-xs text-gray-400 pt-1 hover:text-rose-muted transition-colors"
+          >
+            Open to new opportunities.
+          </button>
         </div>
 
         {/* Middle Column - Projects */}
