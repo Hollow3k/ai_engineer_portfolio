@@ -59,7 +59,7 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
         {/* Left Column - Experiences */}
         <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
           <div className="flex items-center justify-center md:justify-start gap-2">
-            <span>Experiences :</span>
+            <span><h3 className="text-white text-sm font-medium">Experiences :</h3></span>
           </div>
           <p><b>Agentic AI Intern @ Gravity.fast</b></p>
           <div className="space-y-2 text-left text-xs text-gray-400">
