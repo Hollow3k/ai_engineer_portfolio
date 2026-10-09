@@ -102,7 +102,7 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
             <span><h3 className="text-white text-sm font-medium">Experiences :</h3></span>
           </div>
           <p><b>Agentic AI Intern @ Gravity.fast</b></p>
-          <div className="space-y-2 text-left text-xs text-gray-400">
+          <div className="space-y-2 text-center md:text-left text-xs text-gray-400">
             <p>
               I build AI agents and automation workflows that take manual work
               off people's plates - on Activepieces and LangGraph.
@@ -112,7 +112,7 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
                 type="button"
                 onClick={() => setAgentsOpen((prev) => !prev)}
                 aria-expanded={agentsOpen}
-                className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-rose-muted transition-colors"
+                className="flex items-center justify-center md:justify-start gap-1.5 w-full text-xs text-gray-300 hover:text-rose-muted transition-colors"
               >
                 <span>Agents I've built</span>
                 <svg
@@ -131,7 +131,7 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
                 </svg>
               </button>
               {agentsOpen && (
-                <ul className="mt-2 space-y-2 border-l border-gray-700 pl-3">
+                <ul className="mt-3 md:mt-2 space-y-3 md:space-y-2 md:border-l md:border-gray-700 md:pl-3">
                   {agents.map((agent) => (
                     <li key={agent.name} className="leading-relaxed">
                       <span className="text-white font-medium">
@@ -147,7 +147,7 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
           </div>
 
           <div className="space-y-3 pt-2">
-            <div className="space-y-2 text-left">
+            <div className="space-y-2 text-center md:text-left">
               <p><b>Tech Team Member @ Hash Define</b></p>
               <p className="text-xs text-gray-400 leading-relaxed">
                 I’ve taught DSA to 30+ students and helped run technical
