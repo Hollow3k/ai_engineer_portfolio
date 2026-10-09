@@ -7,7 +7,7 @@ export default function LinksSection() {
         <div className="grid grid-cols-2 gap-4">
           {/* Email */}
           <a
-            href="mailto:angadbajaj301206@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=angadbajaj301206@gmail.com"
             className="group flex items-center gap-3 border border-gray-800 rounded-lg px-4 py-3 hover:border-rose-muted/50 transition-colors"
           >
             <FiMail className="text-rose-muted text-lg shrink-0" />

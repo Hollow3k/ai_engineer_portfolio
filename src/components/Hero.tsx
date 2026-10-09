@@ -1,6 +1,8 @@
+import { FiMail } from "react-icons/fi";
+
 export default function Hero() {
   return (
-    <div className="flex items-center justify-center px-4 py-6 md:px-6">
+    <div className="flex flex-col items-center justify-center px-4 py-6 md:px-6">
       <div className="flex items-end gap-3 md:gap-8">
         {/* Profile Image */}
         <div className="w-28 h-40 md:w-52 md:h-72 relative flex-shrink-0">

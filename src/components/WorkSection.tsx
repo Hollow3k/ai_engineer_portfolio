@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { FiGithub, FiGlobe } from "react-icons/fi";
+
 interface Project {
   name: string;
   description: string;
@@ -5,6 +8,41 @@ interface Project {
   liveUrl: string;
   githubUrl: string;
 }
+
+interface Agent {
+  name: string;
+  description: string;
+  platform: string;
+}
+
+const agents: Agent[] = [
+  {
+    name: "Daily news digest agent",
+    description: "curates and sends a personalized digest every morning",
+    platform: "Activepieces",
+  },
+  {
+    name: "GitHub release notes automator",
+    description: "turns new releases into clean readable notes",
+    platform: "Activepieces",
+  },
+  {
+    name: "Receipt scanner",
+    description: "scans receipts and generates a monthly expense report",
+    platform: "Activepieces",
+  },
+  {
+    name: "JD + resume match detector",
+    description: "scores a resume against a job description with gaps and fixes",
+    platform: "LangGraph",
+  },
+  {
+    name: "Blogger scout",
+    description:
+      "scans Medium and other platforms to find bloggers for sponsored posts",
+    platform: "LangGraph",
+  },
+];
 
 const projects: Project[] = [
   {
@@ -31,14 +69,14 @@ const projects: Project[] = [
     liveUrl: "https://pitchperfect.angad.social",
     githubUrl: "https://github.com/Hollow3k/pitch-perfect",
   },
-  {
-    name: "Gemini Clone",
-    description:
-      "A working clone of Gemini.com with GEMINI API integration focused at frontend development with ReactJS.",
-    tech: ["React.js", "Gemini API"],
-    liveUrl: "https://geminiclone-beryl.vercel.app/",
-    githubUrl: "https://github.com/Hollow3k/Gemini-clone",
-  },
+  // {
+  //   name: "Gemini Clone",
+  //   description:
+  //     "A working clone of Gemini.com with GEMINI API integration focused at frontend development with ReactJS.",
+  //   tech: ["React.js", "Gemini API"],
+  //   liveUrl: "https://geminiclone-beryl.vercel.app/",
+  //   githubUrl: "https://github.com/Hollow3k/Gemini-clone",
+  // },
 ];
 
 const skills = {
@@ -53,6 +91,8 @@ interface WorkSectionProps {
 }
 
 export default function WorkSection({ onNavigate }: WorkSectionProps) {
+  const [agentsOpen, setAgentsOpen] = useState(false);
+
   return (
     <section id="work" className="px-4 md:px-16 py-3 md:py-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 max-w-6xl mx-auto text-center md:text-left">
@@ -63,8 +103,47 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
           </div>
           <p><b>Agentic AI Intern @ Gravity.fast</b></p>
           <div className="space-y-2 text-left text-xs text-gray-400">
-            <p>I design AI agent systems that take on complex, multi-step work beyond the demo.</p>
-            <p>I focus on the hard part: reliable decisions, structured outputs, and graceful recovery.</p>
+            <p>
+              I build AI agents and automation workflows that take manual work
+              off people's plates - on Activepieces and LangGraph.
+            </p>
+            <div>
+              <button
+                type="button"
+                onClick={() => setAgentsOpen((prev) => !prev)}
+                aria-expanded={agentsOpen}
+                className="flex items-center gap-1.5 text-xs text-gray-300 hover:text-rose-muted transition-colors"
+              >
+                <span>Agents I've built</span>
+                <svg
+                  className={`w-3 h-3 transition-transform ${
+                    agentsOpen ? "rotate-180" : ""
+                  }`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              {agentsOpen && (
+                <ul className="mt-2 space-y-2 border-l border-gray-700 pl-3">
+                  {agents.map((agent) => (
+                    <li key={agent.name} className="leading-relaxed">
+                      <span className="text-white font-medium">
+                        {agent.name}
+                      </span>{" "}
+                      - {agent.description}
+                      <span className="text-rose-muted/90"> - {agent.platform}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
 
           <div className="space-y-3 pt-2">
@@ -99,17 +178,21 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs border border-gray-600 px-3 py-1 text-gray-300 hover:border-rose-muted hover:text-rose-muted transition-colors rounded-sm"
+                  aria-label={`${project.name} live site`}
+                  title="Live Site"
+                  className="text-gray-300 hover:text-rose-muted transition-colors"
                 >
-                  Live Site
+                  <FiGlobe className="text-sm" />
                 </a>
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs border border-gray-600 px-3 py-1 text-gray-300 hover:border-rose-muted hover:text-rose-muted transition-colors rounded-sm"
+                  aria-label={`${project.name} GitHub repository`}
+                  title="GitHub"
+                  className="text-gray-300 hover:text-rose-muted transition-colors"
                 >
-                  Github
+                  <FiGithub className="text-sm" />
                 </a>
               </div>
               <p className="text-xs text-gray-400 leading-relaxed">
@@ -134,6 +217,9 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
           <h3 className="text-white text-sm font-medium">Skills :</h3>
           <ul className="space-y-3 text-sm text-gray-300 leading-relaxed">
             <li>
+              <span className="font-semibold text-white">AI</span> : {skills.ai}
+            </li>
+            <li>
               <span className="font-semibold text-white">Languages</span> :{" "}
               {skills.languages}
             </li>
@@ -144,9 +230,6 @@ export default function WorkSection({ onNavigate }: WorkSectionProps) {
             <li>
               <span className="font-semibold text-white">Backend and
               DevOps</span> : {skills.backend}
-            </li>
-            <li>
-              <span className="font-semibold text-white">AI</span> : {skills.ai}
             </li>
           </ul>
         </div>
