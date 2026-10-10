@@ -34,7 +34,7 @@ export default function AboutSection() {
           </p>
           <p>
             Picking up new things is fun and once I get to know about something,
-            it's just a deep rabbit hole I just have to go deep into.
+            it's just a rabbit hole I just have to go deep into.
           </p>
           <p>
             Fun fact : My favorite part about building a project is designing its
