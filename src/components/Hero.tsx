@@ -1,4 +1,18 @@
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
+
 export default function Hero() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "15min" });
+      cal("floatingButton", {
+        calLink: "hollow3k/15min",
+        config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+      });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center px-4 py-6 md:px-6">
       <div className="flex items-end gap-3 md:gap-8">
